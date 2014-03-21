@@ -1,0 +1,238 @@
+############## Inputs for 2e2mu for 7 TeV ##############
+## SM ##
+model SM
+
+## decay chan ##
+decay 2e2mu
+
+## lumi ##
+lumi 5.051
+systematic lumiUnc 1.022
+
+## sqrtS ##
+sqrts 7
+
+## Channels to include in cards ##
+channels ggH qqZZ zjets
+#qqH WH ZH ttH qqZZ ggZZ zjets
+
+## rates --- format = chan N lumi ##
+## if lumi is blank, lumi for cards used ##
+#Moriond
+#rate qqZZ  0.963396
+#rate ggZZ  0
+#rate zjets 2.9
+#rate signal 13.8515
+
+#4GeV
+#rate qqZZ  0.881903
+#rate ggZZ  0
+##rate zjets 2.9
+#rate zjets 3.72
+#rate signal 11.5276
+
+rate qqZZ  0.309778
+rate ggZZ  0
+rate zjets 2.9
+rate signal 3.26025
+
+
+
+#usehighmassreweightedshapes
+## signal functions --- no spaces! ##
+#aDCBxBW
+#signalShape alpha_CB (2.4)
+#signalShape alpha2_CB (4.0)
+#signalShape n_CB TMath::Max(20,1)
+#signalShape n2_CB (20)
+#signalShape mean_CB (-1.2)
+#signalShape sigma_CB (1.918)
+
+#4GeV
+#signalShape alpha_CB (1.388)
+#signalShape alpha2_CB (4.0)
+#signalShape n_CB TMath::Max(20,1)
+#signalShape n2_CB (20)
+#signalShape mean_CB (-0.0154)
+#signalShape sigma_CB (1.782)
+
+signalShape alpha_CB (1.41)
+signalShape alpha2_CB (4.0)
+signalShape n_CB TMath::Max(20,1)
+signalShape n2_CB (20)
+signalShape mean_CB (-0.039)
+signalShape sigma_CB (1.858)
+
+
+## signal efficiency ##
+signalEff a1  -4.42615
+signalEff a2  4.61366
+signalEff a3  -51.3347
+signalEff a4  101.01
+signalEff b1  2.19128
+signalEff b2  0.00369864
+signalEff b3  -2.24931e-06
+signalEff g1  0.0198211
+signalEff g2  193.483
+signalEff g3  20
+
+
+### background functions ###
+qqZZshape a0_bkgd   112.4
+qqZZshape a1_bkgd   15
+qqZZshape a2_bkgd   35
+qqZZshape a3_bkgd   0.06
+
+#qqZZshape a0_bkgd   111.163
+#qqZZshape a1_bkgd   11.9998
+#qqZZshape a2_bkgd   117.557
+#qqZZshape a3_bkgd   0.0425536
+#qqZZshape a4_bkgd   185.145
+#qqZZshape a5_bkgd   10.2669
+#qqZZshape a6_bkgd   29.4708
+#qqZZshape a7_bkgd   0.0839434
+#qqZZshape a8_bkgd   53.3706
+#qqZZshape a9_bkgd   0.0913265
+#qqZZshape a10_bkgd  85.5325
+#qqZZshape a11_bkgd  -13.5325
+#qqZZshape a12_bkgd  51.9443
+#qqZZshape a13_bkgd  0.329923
+
+
+ggZZshape a0_bkgd  143.198
+ggZZshape a1_bkgd  42.5313
+ggZZshape a2_bkgd  129.357
+ggZZshape a3_bkgd  0.0316705
+ggZZshape a4_bkgd  185.015
+ggZZshape a5_bkgd  12.0895
+ggZZshape a6_bkgd  36.9175
+ggZZshape a7_bkgd  0.1699
+ggZZshape a8_bkgd  57.0365
+ggZZshape a9_bkgd  0.0678273
+
+#zjetsShape mean 143.1
+#zjetsShape sigma 19.9
+##zjetsShape mean 137.2
+##zjetsShape sigma 18.62
+#zjetsShape p0 -120670
+#zjetsShape p1 2328
+#zjetsShape p2 -8.867
+#zjetsShape p3 0.0125
+#zjetsShape p4 -6.058e-06
+
+zjetsShape mean_3p1f 108.9
+zjetsShape sigma_3p1f 8.7
+zjetsShape norm_3p1f 1.99
+
+
+zjetsShape mean_2p2f 168.6
+zjetsShape sigma_2p2f 30.0
+zjetsShape norm_2p2f 1.16
+zjetsShape pol0_2p2f 0
+zjetsShape pol1_2p2f 0
+
+#4GeV
+#zjetsShape mean_2p2f 109.8
+#zjetsShape sigma_2p2f 14.3
+#zjetsShape norm_2p2f 1.2
+#zjetsShape pol0_2p2f 5.0
+#zjetsShape pol1_2p2f 0.0089
+
+zjetsShape mean_2e2mu_2p2f 127.7
+zjetsShape sigma_2e2mu_2p2f 14.61
+zjetsShape norm_2e2mu_2p2f 1.
+
+### channel dependent systematics ###
+systematic zjetKappaLow   0.6
+systematic zjetKappaHigh  1.4
+systematic param CMS_zz4l_mean_m_sig   0.001
+systematic param CMS_zz4l_sigma_m_sig  0.2
+systematic param CMS_zz4l_mean_e_sig   0.003
+systematic param CMS_zz4l_sigma_e_sig  0.2
+systematic param CMS_zz4l_n_sig 0.05
+systematic param CMS_zz4l_gamma_sig 0.05
+
+
+## 4mu systematics ##
+systematic muon_full 0.025 0.012 180
+systematic muon_trig 0.015
+
+## 4e systematics ##
+systematic elec_full 0.11 0.06 150
+systematic elec_trig 0.015
+
+
+## 2e2mu systematics automatic ##
+
+
+##### Add Systematic to Cards ####
+##### allowed true/false, 1/0 ####
+systematic luminosity True
+systematic pdf_gg False
+systematic pdf_qqbar True
+systematic pdf_hzz4l_accept True
+systematic QCDscale_ggH False
+systematic QCDscale_qqH False
+systematic QCDscale_VH False
+systematic QCDscale_ttH False
+systematic theoryUncXS_HighMH False
+systematic QCDscale_ggVV False
+systematic QCDscale_VV True
+systematic BRhiggs_hzz4l False
+systematic CMS_eff True
+systematic CMS_hzz4l_Zjets True
+systematic CMS_zz4l_bkgMELA False
+systematic CMS_zz4l_sigMELA False
+systematic CMS_zz4l_mean True
+systematic CMS_zz4l_sigma True
+systematic CMS_zz4l_mean True
+systematic CMS_zz4l_sigma True
+systematic CMS_zz4l_n True
+systematic CMS_zz4l_gamma False
+
+  
+### for hypothesis testing ###
+doHypTest False
+#altHypLabel _ALT
+
+
+signalShape mekd_sig_a0 TMath::Max(7.042+(0.04928)*(@0-100)+(-0.0001775)*(@0-100)*(@0-100),0)
+qqZZshape mekd_qqZZ_a0 TMath::Max(6.296+(0.02072)*(@0-100)+(-8.53e-05)*(@0-100)*(@0-100),0)
+signalShape mekd_sig_a1 TMath::Max(1.114+(0.008541)*(@0-100)+(-0.0001212)*(@0-100)*(@0-100),0)
+qqZZshape mekd_qqZZ_a1 TMath::Max(1.361+(0.001774)*(@0-100)+(0.0001754)*(@0-100)*(@0-100),0)
+signalShape mekd_sig_a2 TMath::Min(TMath::Max(0.7882+(-0.0009256)*(@0-100)+(-9.42e-05)*(@0-100)*(@0-100),0),1)
+qqZZshape mekd_qqZZ_a2 TMath::Min(TMath::Max(0.7925+(-0.007821)*(@0-100)+(0.0001686)*(@0-100)*(@0-100),0),1)
+signalShape mekd_sig_a3 TMath::Max(9.794+(-0.0222)*(@0-100)+(0.0003485)*(@0-100)*(@0-100),0)
+qqZZshape mekd_qqZZ_a3 TMath::Max(5.916+(-0.03402)*(@0-100)+(0.002453)*(@0-100)*(@0-100),0)
+signalShape mekd_sig_a4 TMath::Max(0.6122+(0.01281)*(@0-100)+(-0.0002555)*(@0-100)*(@0-100),0)
+qqZZshape mekd_qqZZ_a4 TMath::Max(0.3059+(0.1554)*(@0-100)+(-0.003453)*(@0-100)*(@0-100),0)
+
+RelErrShape relerr_zx_ld_mean 0.0291404
+RelErrShape relerr_zx_ld_sigma 0.00440845
+RelErrShape relerr_zx_gs_mean 0.0133473
+RelErrShape relerr_zx_gs_sigma 0.00397736
+RelErrShape relerr_zx_ld_frac 0.546106
+
+ RelErrShape  relerr_qqzz_ld_frac 0.630003 
+ RelErrShape  relerr_qqzz_ld_mean 0.0144034+(-2.1102e-05*@0)
+ RelErrShape  relerr_qqzz_ld_sigma 0.0198207+(-0.000273488*@0)+(1.01742e-06*@0*@0)
+ RelErrShape  relerr_qqzz_gs_mean 0.0315695+(-8.56245e-05*@0)
+ RelErrShape  relerr_qqzz_gs_sigma 0.00606524+(-1.64997e-05*@0)
+
+# RelErrShape  relerr_ggH_ld_mean 0.0126009+(-1.22923e-05*@0)
+# RelErrShape  relerr_ggH_ld_sigma 0.00496475+(-5.32893e-05*@0)+(1.95969e-07*@0*@0)
+# RelErrShape  relerr_ggH_gs_mean 0.02767+(-6.79398e-05*@0)
+# RelErrShape  relerr_ggH_gs_sigma 0.00811232+(-2.97539e-05*@0)
+# RelErrShape  relerr_ggH_ld_frac 0.63 
+
+#RelErrShape relerr_ggH_ld_frac 0.649624
+#RelErrShape relerr_ggH_ld_mean 0.0585797+(-0.00101789*@0)+(5.43754e-06*@0*@0)
+#RelErrShape relerr_ggH_ld_sigma 0.0220111+(-0.000437975*@0)+(2.33242e-06*@0*@0)
+#RelErrShape relerr_ggH_gs_mean 0.167792+(-0.00311406*@0)+(1.66367e-05*@0*@0)
+#RelErrShape relerr_ggH_gs_sigma 0.00499899+(2.2655e-08*@0)+(-1.27246e-10*@0*@0)
+
+RelErrShape relerr_ggH_ld_frac 0.645566
+RelErrShape relerr_ggH_ld_mean 0.161057+(-0.00326763*@0)+(1.77684e-05*@0*@0)
+RelErrShape relerr_ggH_ld_sigma 0.0661287+(-0.00140787*@0)+(7.65541e-06*@0*@0)
+RelErrShape relerr_ggH_gs_mean 0.418664+(-0.00865288*@0)+(4.71476e-05*@0*@0)
+RelErrShape relerr_ggH_gs_sigma 0.004999+(2.20625e-08*@0)+(-1.21881e-10*@0*@0)
